@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upgrades</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -14,7 +14,13 @@
             <button class="upgrade-button" onclick="upgradeCoinsPerHour()">Upgrade</button>
         </div>
         <p>Current Gain: <span id="gainPerHour">0</span> coins/hour</p>
-        <button id="backButton" onclick="window.location.href='index.html'">Back to Game</button>
+
+        <!-- Barra inferior com botões -->
+        <div class="bottom-bar">
+            <button class="nav-button" id="homeButton" onclick="window.location.href='index.html'">Home</button>
+            <button class="nav-button" id="upgradeButton" onclick="window.location.href='upgrade.html'">Upgrades</button>
+            <button class="nav-button" id="tasksButton">Tasks</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

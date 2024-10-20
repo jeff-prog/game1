@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click Coin Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
             <p>Coins/hour: <span id="coinsPerHour">0</span></p>
+            <p>Level: <span id="level">1</span> | XP: <span id="xp">0</span> | Rank: <span id="rankTitle">Private</span></p>
         </header>
-        <h1>Coin Clicker</h1>
+        <h1 id="totalCoins">0</h1>
+
         <div class="energy-bar">
             <div id="energy-level"></div>
         </div>
-        <img id="coin" src="coin.png" alt="Coin" onclick="clickCoin()">
+        
+        <!-- Círculo em volta da imagem -->
+        <div class="circle">
+            <img id="coin" src="private.jpg" alt="Soldado" onclick="clickCoin()">
+        </div>
+
         <p>Coins: <span id="coinCount">0</span></p>
-        <div class="menu-bar">
-            <button id="upgradeButton" onclick="window.location.href='upgrade.html'">UPGRADE</button>
+
+        <!-- Barra inferior com botões -->
+        <div class="bottom-bar">
+            <button class="nav-button" id="homeButton" onclick="window.location.href='index.html'">Home</button>
+            <button class="nav-button" id="upgradeButton" onclick="window.location.href='upgrade.html'">Upgrades</button>
+            <button class="nav-button" id="tasksButton">Tasks</button>
         </div>
     </div>
 

@@ -31,11 +31,24 @@ h1 {
     margin-bottom: 20px;
 }
 
-img {
-    width: 80px; /* Ajustando o tamanho da moeda */
-    height: 80px;
+.circle {
+    width: 360px; /* Ajustado para ser maior */
+    height: 360px; /* Ajustado para ser maior */
+    border-radius: 50%; /* Faz o contorno ser um círculo */
+    border: 5px solid white; /* Borda branca */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Centraliza o círculo */
+    overflow: hidden; /* Para esconder a parte da imagem que ultrapassa */
+}
+
+.circle img {
+    width: 100%; /* A imagem ocupará toda a largura do círculo */
+    height: auto; /* Mantém a proporção da imagem */
+    max-height: 100%; /* Limita a altura da imagem para não ultrapassar o círculo */
+    object-fit: cover; /* Faz a imagem preencher o círculo */
     cursor: pointer;
-    margin: 20px 0;
 }
 
 .energy-bar {
@@ -53,7 +66,7 @@ img {
     width: 100%;
 }
 
-.menu-bar {
+.bottom-bar {
     margin-top: 20px;
 }
 
