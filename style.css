@@ -32,8 +32,8 @@ h1 {
 }
 
 img {
-    width: 100px; /* Ajuste o tamanho da moeda */
-    height: 100px;
+    width: 80px; /* Ajustando o tamanho da moeda */
+    height: 80px;
     cursor: pointer;
     margin: 20px 0;
 }
