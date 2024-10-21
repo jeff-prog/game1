@@ -4,26 +4,27 @@ let energyInterval;
 let gainPerHour = 0;
 let xp = 0;
 let level = 1;
-const xpToLevelUp = 100; // XP necessário para subir de nível
+let xpToLevelUp = 1000; // XP inicial para subir de nível
+const xpIncreaseFactor = 1.5; // Fator de aumento do XP para cada novo nível
 
 // Lista de patentes e suas respectivas imagens
 const ranks = [
-    { title: "Private", image: "private.jpg" },
-    { title: "Corporal", image: "corporal.jpg" },
-    { title: "Sergeant", image: "sergeant.jpg" },
-    { title: "Staff Sergeant", image: "staff_sergeant.jpg" },
-    { title: "Sergeant Major", image: "sergeant_major.jpg" },
-    { title: "Warrant Officer", image: "warrant_officer.jpg" },
-    { title: "Second Lieutenant", image: "second_lieutenant.jpg" },
-    { title: "First Lieutenant", image: "first_lieutenant.jpg" },
-    { title: "Captain", image: "captain.jpg" },
-    { title: "Major", image: "major.jpg" },
-    { title: "Lieutenant Colonel", image: "lieutenant_colonel.jpg" },
-    { title: "Colonel", image: "colonel.jpg" },
-    { title: "Brigadier General", image: "brigadier_general.jpg" },
-    { title: "Major General", image: "major_general.jpg" },
-    { title: "Lieutenant General", image: "lieutenant_general.jpg" },
-    { title: "General", image: "general.jpg" },
+    { title: "Private", image: "img/private.jpg" },
+    { title: "Corporal", image: "img/corporal.jpg" },
+    { title: "Sergeant", image: "img/sergeant.jpg" },
+    { title: "Staff Sergeant", image: "img/staff_sergeant.jpg" },
+    { title: "Sergeant Major", image: "img/sergeant_major.jpg" },
+    { title: "Warrant Officer", image: "img/warrant_officer.jpg" },
+    { title: "Second Lieutenant", image: "img/second_lieutenant.jpg" },
+    { title: "First Lieutenant", image: "img/first_lieutenant.jpg" },
+    { title: "Captain", image: "img/captain.jpg" },
+    { title: "Major", image: "img/major.jpg" },
+    { title: "Lieutenant Colonel", image: "img/lieutenant_colonel.jpg" },
+    { title: "Colonel", image: "img/colonel.jpg" },
+    { title: "Brigadier General", image: "img/brigadier_general.jpg" },
+    { title: "Major General", image: "img/major_general.jpg" },
+    { title: "Lieutenant General", image: "img/lieutenant_general.jpg" },
+    { title: "General", image: "img/general.jpg" },
 ];
 
 function recoverEnergy() {
@@ -42,7 +43,7 @@ function clickCoin() {
         // Verifica se o jogador subiu de nível
         if (xp >= xpToLevelUp) {
             level++;
-            xp -= xpToLevelUp; // Reduz o XP para o próximo nível
+            xpToLevelUp = Math.floor(xpToLevelUp * xpIncreaseFactor); // Aumenta o XP necessário para o próximo nível
             
             // Atualiza a patente e a imagem correspondente
             if (level <= ranks.length) {
@@ -52,7 +53,7 @@ function clickCoin() {
             }
         }
 
-        document.getElementById("xp").textContent = xp;
+        document.getElementById("xp").textContent = xp; // Mostra o XP acumulado
         energy -= 2;
         document.getElementById("energy-level").style.width = energy + "%";
     }
@@ -66,7 +67,7 @@ function upgradeCoinsPerHour() {
 window.onload = function() {
     energyInterval = setInterval(recoverEnergy, 100);
     document.getElementById("coinsPerHour").textContent = gainPerHour;
-    document.getElementById("totalCoins").textContent = coinCount; // Atualiza o total de moedas
+    document.getElementById("coinCount").textContent = coinCount; // Atualiza o contador de moedas no topo
     document.getElementById("rankTitle").textContent = ranks[0].title; // Exibe a patente inicial
     document.getElementById("coin").src = ranks[0].image; // Define a imagem inicial
 };
